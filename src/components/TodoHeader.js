@@ -6,13 +6,16 @@ export default class TodoHeader extends React.Component{
         super(props)
         this.state = {
             headerTitle:'todos',
-            cipId:'cIPJQ342845639',
+            cipId:'',
             cipVal:''
         }
     }
 
-    static defaultPropsType = {
-         cipVal: React.PropTypes.string.isRequired
+    guid() {//生成uuid
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
     }
 
     handleChange(event){
@@ -20,13 +23,15 @@ export default class TodoHeader extends React.Component{
     }
     
 
-    handleEnter(event){
-        if(event.keyCode == 13){
+    handleEnter(event){//回撤新增任务
+        if(event.keyCode == 13 && this.state.cipVal !=""){
             let task = {
+                taskId:this.guid(),
                 status: '',
                 taskName: this.state.cipVal
             }
             this.props.addTask(task)
+            this.setState({cipVal:'',cipId:task.taskId});
         }
     }
 

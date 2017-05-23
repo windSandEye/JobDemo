@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import FooterFilter from "./FooterFilter";
 
 export default class TodoFooter extends React.Component{
@@ -12,7 +13,7 @@ export default class TodoFooter extends React.Component{
                     <span> 项任务</span>
                 </span>
                 <FooterFilter switchTab={this.props.switchTab.bind(this)} />
-                <button id="clear-completed" className="clear-completed"
+                <button ref="clearCompleted" className={this.props.isClear ? "clear-completed" : "hidden"}
                         onClick={this.props.clearCompleteTask.bind(this)}>
                     清除已完成项目
                 </button>

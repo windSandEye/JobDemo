@@ -8,13 +8,16 @@ export default class TodoApp extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            isClear:true,
             isCheckAll:false,
             taskList:[
                 {
+                    taskId:"123",
                     status: 'completed',
                     taskName: '删除的任务'
                 },
                 {
+                    taskId:"1234",
                     status: '',
                     taskName: '任务一'
                 }
@@ -23,13 +26,19 @@ export default class TodoApp extends React.Component{
         }
     }
 
-    componentWillMount(){
+    componentWillMount(){//初始化是否全选，是否显示清楚任务按钮
         if(this.state.taskList.every((task)=>task.status=='completed')){
             this.state.isCheckAll = true;
         }else{
             this.state.isCheckAll = false;
         }
-        this.setState({isCheckAll:this.state.isCheckAll})
+        if(this.state.taskList.every((task)=>task.status=='')){
+            this.state.isClear = false;
+        }else{
+            this.state.isClear = true;
+        }
+
+        this.setState({isCheckAll:this.state.isCheckAll,isClear:this.state.isClear})
     }
 
     isAllChecked(){//任务是否全部完成
@@ -38,7 +47,12 @@ export default class TodoApp extends React.Component{
         }else{
             this.state.isCheckAll = false;
         }
-        this.setState({taskList:this.state.taskList,isCheckAll:this.state.isCheckAll})
+        if(this.state.taskList.every((task)=>task.status=='')){
+            this.state.isClear = false;
+        }else{
+            this.state.isClear = true;
+        }
+        this.setState({taskList:this.state.taskList,isCheckAll:this.state.isCheckAll,isClear:this.state.isClear})
     }
     changeTaskStatus(index,status,isCheckAll=false){//任务状态改变
         if(isCheckAll){//如果是全选状态
@@ -47,7 +61,8 @@ export default class TodoApp extends React.Component{
                         task.status='completed';
                         return task;
                 }),
-                isCheckAll:true
+                isCheckAll:true,
+                isClear:true
             })
         }else{//非全选状态
             this.state.taskList[index].status = status;
@@ -78,7 +93,7 @@ export default class TodoApp extends React.Component{
         for(let task of taskList){
             task.status = "";
         }
-         this.setState({taskList:taskList,isCheckAll:false});
+         this.setState({taskList:taskList,isCheckAll:false,isClear:false});
     }
 
     render(){
@@ -100,12 +115,14 @@ export default class TodoApp extends React.Component{
                           taskList={currentTask}
                           changeTaskStatus={this.changeTaskStatus.bind(this)}
                           deleteTask={this.deleteTask.bind(this)}
-                          updateTask={this.deleteTask.bind(this)}
+                          updateTask={this.updateTask.bind(this)}
                           resetStatus={this.resetStatus.bind(this)}
                 />
                 <TodoFooter  clearCompleteTask={this.clearCompleteTask.bind(this)}
                              switchTab={this.switchTab.bind(this)}
                              taskCount={taskCount}
+                             isCheckAll={this.state.isCheckAll}
+                             isClear={this.state.isClear}
                 />
             </section>
         )
