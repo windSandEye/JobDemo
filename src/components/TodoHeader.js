@@ -11,8 +11,23 @@ export default class TodoHeader extends React.Component{
         }
     }
 
+    static defaultPropsType = {
+         cipVal: React.PropTypes.string.isRequired
+    }
+
     handleChange(event){
         this.setState({cipVal:event.target.value});
+    }
+    
+
+    handleEnter(event){
+        if(event.keyCode == 13){
+            let task = {
+                status: '',
+                taskName: this.state.cipVal
+            }
+            this.props.addTask(task)
+        }
     }
 
     render(){
@@ -24,6 +39,7 @@ export default class TodoHeader extends React.Component{
                        data-cip-id={this.state.cipId}
                        value={this.state.cipVal}
                        onChange={this.handleChange.bind(this)}
+                       onKeyDown={this.handleEnter.bind(this)}
                 />
             </header>
         )

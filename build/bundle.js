@@ -9608,7 +9608,7 @@ var TodoApp = function (_React$Component) {
                         task.status = 'completed';
                         return task;
                     }),
-                    isCheckAll: false
+                    isCheckAll: true
                 });
             } else {
                 //非全选状态
@@ -9714,19 +9714,19 @@ var FooterFilter = function (_React$Component) {
         value: function switchTab(index) {
             var currentTask = this.props.allTask;
             if (index == 0) {
-                _reactDom2.default.findDOMNode(this.refs.all).style.class = 'selected';
-                _reactDom2.default.findDOMNode(this.refs.active).style.class = '';
-                _reactDom2.default.findDOMNode(this.refs.completed).style.class = '';
+                _reactDom2.default.findDOMNode(this.refs.all).className = 'selected';
+                _reactDom2.default.findDOMNode(this.refs.active).className = '';
+                _reactDom2.default.findDOMNode(this.refs.completed).className = '';
                 currentTask = this.props.allTask;
             } else if (index == 1) {
-                _reactDom2.default.findDOMNode(this.refs.all).style.class = '';
-                _reactDom2.default.findDOMNode(this.refs.active).style.class = 'selected';
-                _reactDom2.default.findDOMNode(this.refs.completed).style.class = '';
+                _reactDom2.default.findDOMNode(this.refs.all).className = '';
+                _reactDom2.default.findDOMNode(this.refs.active).className = 'selected';
+                _reactDom2.default.findDOMNode(this.refs.completed).className = '';
                 currentTask = this.props.doneTask;
             } else if (index == 2) {
-                _reactDom2.default.findDOMNode(this.refs.all).style.class = '';
-                _reactDom2.default.findDOMNode(this.refs.active).style.class = '';
-                _reactDom2.default.findDOMNode(this.refs.completed).style.class = 'selected';
+                _reactDom2.default.findDOMNode(this.refs.all).className = '';
+                _reactDom2.default.findDOMNode(this.refs.active).className = '';
+                _reactDom2.default.findDOMNode(this.refs.completed).className = 'selected';
                 currentTask = this.props.noDoneTask;
             }
             this.props.switchTab(currentTask);
@@ -9793,8 +9793,6 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(14);
@@ -9821,7 +9819,7 @@ var TodoFooter = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (TodoFooter.__proto__ || Object.getPrototypeOf(TodoFooter)).call(this, props));
 
-        _this.state = {
+        _this.state = { //注意：这里初始化的数据是没有被同步的，也就是说，界面的修改并没有影响这里的数据，实际应用中应该从后台获取实时数据。
             allTask: props.taskList,
             doneTask: props.taskList.filter(function (task) {
                 return task.status == 'completed';
@@ -9833,11 +9831,6 @@ var TodoFooter = function (_React$Component) {
         };
         return _this;
     }
-    // static defaultProps = {
-    //     allTask : this.state.allTask,
-    //     doneTask:this.state.doneTask,
-    //     noDoneTask:this.state.noDoneTask
-    // }
 
     _createClass(TodoFooter, [{
         key: 'render',
@@ -9861,7 +9854,11 @@ var TodoFooter = function (_React$Component) {
                         ' \u9879\u4EFB\u52A1'
                     )
                 ),
-                _react2.default.createElement(_FooterFilter2.default, _extends({ switchTab: this.props.switchTab.bind(this) }, this.props)),
+                _react2.default.createElement(_FooterFilter2.default, { switchTab: this.props.switchTab.bind(this),
+                    allTask: this.state.allTask,
+                    doneTask: this.state.doneTask,
+                    noDoneTask: this.state.noDoneTask
+                }),
                 _react2.default.createElement(
                     'button',
                     { id: 'clear-completed', className: 'clear-completed',
@@ -10165,7 +10162,7 @@ exports = module.exports = __webpack_require__(90)(undefined);
 
 
 // module
-exports.push([module.i, "html,body {\r\n    margin: 0;\r\n    padding: 0;\r\n}\r\n\r\nbutton {\r\n    margin: 0;\r\n    padding: 0;\r\n    border: 0;\r\n    background: none;\r\n    font-size: 100%;\r\n    vertical-align: baseline;\r\n    font-family: inherit;\r\n    font-weight: inherit;\r\n    color: inherit;\r\n    -webkit-appearance: none;\r\n    appearance: none;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\nbody {\r\n    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;\r\n    line-height: 1.4em;\r\n    background: #f5f5f5;\r\n    color: #4d4d4d;\r\n    min-width: 230px;\r\n    max-width: 550px;\r\n    margin: 0 auto;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n    font-weight: 300;\r\n}\r\n\r\nbutton,\r\ninput[type=\"checkbox\"] {\r\n    outline: none;\r\n}\r\n\r\n.hidden {\r\n    display: none;\r\n}\r\n\r\n.todoapp {\r\n    background: #fff;\r\n    margin: 130px 0 40px 0;\r\n    position: relative;\r\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),\r\n    0 25px 50px 0 rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.todoapp input::-webkit-input-placeholder {\r\n    font-style: italic;\r\n    font-weight: 300;\r\n    color: #e6e6e6;\r\n}\r\n\r\n.todoapp input::-moz-placeholder {\r\n    font-style: italic;\r\n    font-weight: 300;\r\n    color: #e6e6e6;\r\n}\r\n\r\n.todoapp input::input-placeholder {\r\n    font-style: italic;\r\n    font-weight: 300;\r\n    color: #e6e6e6;\r\n}\r\n\r\n.todoapp h1 {\r\n    position: absolute;\r\n    top: -155px;\r\n    width: 100%;\r\n    font-size: 100px;\r\n    font-weight: 100;\r\n    text-align: center;\r\n    color: rgba(175, 47, 47, 0.15);\r\n    -webkit-text-rendering: optimizeLegibility;\r\n    -moz-text-rendering: optimizeLegibility;\r\n    text-rendering: optimizeLegibility;\r\n}\r\n\r\n.new-todo,\r\n.edit {\r\n    position: relative;\r\n    margin: 0;\r\n    width: 100%;\r\n    font-size: 24px;\r\n    font-family: inherit;\r\n    font-weight: inherit;\r\n    line-height: 1.4em;\r\n    border: 0;\r\n    outline: none;\r\n    color: inherit;\r\n    padding: 6px;\r\n    border: 1px solid #999;\r\n    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);\r\n    box-sizing: border-box;\r\n    -webkit-font-smoothing: antialiased;\r\n    -moz-osx-font-smoothing: grayscale;\r\n}\r\n\r\n.new-todo {\r\n    padding: 16px 16px 16px 60px;\r\n    border: none;\r\n    background: rgba(0, 0, 0, 0.003);\r\n    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);\r\n}\r\n\r\n.main {\r\n    position: relative;\r\n    z-index: 2;\r\n    border-top: 1px solid #e6e6e6;\r\n}\r\n\r\nlabel[for='toggle-all'] {\r\n    display: none;\r\n}\r\n\r\n.toggle-all {\r\n    position: absolute;\r\n    top: -55px;\r\n    left: -12px;\r\n    width: 60px;\r\n    height: 34px;\r\n    text-align: center;\r\n    border: none; /* Mobile Safari */\r\n}\r\n\r\n.toggle-all:before {\r\n    content: '\\276F';\r\n    font-size: 22px;\r\n    color: #e6e6e6;\r\n    padding: 10px 27px 10px 27px;\r\n}\r\n\r\n.toggle-all:checked:before {\r\n    color: #737373;\r\n}\r\n\r\n.todo-list {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n}\r\n\r\n.todo-list li {\r\n    position: relative;\r\n    font-size: 24px;\r\n    border-bottom: 1px solid #ededed;\r\n}\r\n\r\n.todo-list li:last-child {\r\n    border-bottom: none;\r\n}\r\n\r\n.todo-list li.editing {\r\n    border-bottom: none;\r\n    padding: 0;\r\n}\r\n\r\n.todo-list li.editing .edit {\r\n    display: block;\r\n    width: 506px;\r\n    padding: 13px 17px 12px 17px;\r\n    margin: 0 0 0 43px;\r\n}\r\n\r\n.todo-list li.editing .view {\r\n    display: none;\r\n}\r\n\r\n.todo-list li .toggle {\r\n    text-align: center;\r\n    width: 40px;\r\n    /* auto, since non-WebKit browsers doesn't support input styling */\r\n    height: auto;\r\n    position: absolute;\r\n    top: 0;\r\n    bottom: 0;\r\n    margin: auto 0;\r\n    border: none; /* Mobile Safari */\r\n    -webkit-appearance: none;\r\n    appearance: none;\r\n}\r\n\r\n.todo-list li .toggle:after {\r\n    content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"-10 -18 100 135\"><circle cx=\"50\" cy=\"50\" r=\"50\" fill=\"none\" stroke=\"#ededed\" stroke-width=\"3\"/></svg>');\r\n}\r\n\r\n.todo-list li .toggle:checked:after {\r\n    content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"-10 -18 100 135\"><circle cx=\"50\" cy=\"50\" r=\"50\" fill=\"none\" stroke=\"#bddad5\" stroke-width=\"3\"/><path fill=\"#5dc2af\" d=\"M72 25L42 71 27 56l-4 4 20 20 34-52z\"/></svg>');\r\n}\r\n\r\n.todo-list li label {\r\n    white-space: pre-line;\r\n    word-break: break-all;\r\n    padding: 15px 60px 15px 15px;\r\n    margin-left: 45px;\r\n    display: block;\r\n    line-height: 1.2;\r\n    transition: color 0.4s;\r\n}\r\n\r\n.todo-list li.completed label {\r\n    color: #d9d9d9;\r\n    text-decoration: line-through;\r\n}\r\n\r\n.todo-list li .destroy {\r\n    display: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 10px;\r\n    bottom: 0;\r\n    width: 40px;\r\n    height: 40px;\r\n    margin: auto 0;\r\n    font-size: 30px;\r\n    color: #cc9a9a;\r\n    margin-bottom: 11px;\r\n    transition: color 0.2s ease-out;\r\n}\r\n\r\n.todo-list li .destroy:hover {\r\n    color: #af5b5e;\r\n}\r\n\r\n.todo-list li .destroy:after {\r\n    content: '\\D7';\r\n}\r\n\r\n.todo-list li:hover .destroy {\r\n    display: block;\r\n}\r\n\r\n.todo-list li .edit {\r\n    display: none;\r\n}\r\n\r\n.todo-list li.editing:last-child {\r\n    margin-bottom: -1px;\r\n}\r\n\r\n.footer {\r\n    color: #777;\r\n    padding: 10px 15px;\r\n    height: 20px;\r\n    text-align: center;\r\n    border-top: 1px solid #e6e6e6;\r\n}\r\n\r\n.footer:before {\r\n    content: '';\r\n    position: absolute;\r\n    right: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    height: 50px;\r\n    overflow: hidden;\r\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),\r\n    0 8px 0 -3px #f6f6f6,\r\n    0 9px 1px -3px rgba(0, 0, 0, 0.2),\r\n    0 16px 0 -6px #f6f6f6,\r\n    0 17px 2px -6px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.todo-count {\r\n    float: left;\r\n    text-align: left;\r\n}\r\n\r\n.todo-count strong {\r\n    font-weight: 300;\r\n}\r\n\r\n.filters {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n    position: absolute;\r\n    right: 0;\r\n    left: 0;\r\n}\r\n\r\n.filters li {\r\n    display: inline;\r\n}\r\n\r\n.filters li a {\r\n    color: inherit;\r\n    margin: 3px;\r\n    padding: 3px 7px;\r\n    text-decoration: none;\r\n    border: 1px solid transparent;\r\n    border-radius: 3px;\r\n}\r\n\r\n.filters li a.selected,\r\n.filters li a:hover {\r\n    border-color: rgba(175, 47, 47, 0.1);\r\n}\r\n\r\n.filters li a.selected {\r\n    border-color: rgba(175, 47, 47, 0.2);\r\n}\r\n\r\n.clear-completed,\r\nhtml .clear-completed:active {\r\n    float: right;\r\n    position: relative;\r\n    line-height: 20px;\r\n    text-decoration: none;\r\n    cursor: pointer;\r\n}\r\n\r\n.clear-completed:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n.info {\r\n    margin: 65px auto 0;\r\n    color: #bfbfbf;\r\n    font-size: 10px;\r\n    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);\r\n    text-align: center;\r\n}\r\n\r\n.info p {\r\n    line-height: 1;\r\n}\r\n\r\n.info a {\r\n    color: inherit;\r\n    text-decoration: none;\r\n    font-weight: 400;\r\n}\r\n\r\n.info a:hover {\r\n    text-decoration: underline;\r\n}\r\n\r\n/*\r\n    Hack to remove background from Mobile Safari.\r\n    Can't use it globally since it destroys checkboxes in Firefox\r\n*/\r\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\r\n    .toggle-all,\r\n    .todo-list li .toggle {\r\n        background: none;\r\n    }\r\n\r\n    .todo-list li .toggle {\r\n        height: 40px;\r\n    }\r\n\r\n    .toggle-all {\r\n        -webkit-transform: rotate(90deg);\r\n        transform: rotate(90deg);\r\n        -webkit-appearance: none;\r\n        appearance: none;\r\n    }\r\n}\r\n\r\n@media (max-width: 430px) {\r\n    .footer {\r\n        height: 50px;\r\n    }\r\n\r\n    .filters {\r\n        bottom: 10px;\r\n    }\r\n}", ""]);
+exports.push([module.i, "html,body {\n    margin: 0;\n    padding: 0;\n}\n\nbutton {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    background: none;\n    font-size: 100%;\n    vertical-align: baseline;\n    font-family: inherit;\n    font-weight: inherit;\n    color: inherit;\n    -webkit-appearance: none;\n    appearance: none;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\nbody {\n    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;\n    line-height: 1.4em;\n    background: #f5f5f5;\n    color: #4d4d4d;\n    min-width: 230px;\n    max-width: 550px;\n    margin: 0 auto;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    font-weight: 300;\n}\n\nbutton,\ninput[type=\"checkbox\"] {\n    outline: none;\n}\n\n.hidden {\n    display: none;\n}\n\n.todoapp {\n    background: #fff;\n    margin: 130px 0 40px 0;\n    position: relative;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),\n    0 25px 50px 0 rgba(0, 0, 0, 0.1);\n}\n\n.todoapp input::-webkit-input-placeholder {\n    font-style: italic;\n    font-weight: 300;\n    color: #e6e6e6;\n}\n\n.todoapp input::-moz-placeholder {\n    font-style: italic;\n    font-weight: 300;\n    color: #e6e6e6;\n}\n\n.todoapp input::input-placeholder {\n    font-style: italic;\n    font-weight: 300;\n    color: #e6e6e6;\n}\n\n.todoapp h1 {\n    position: absolute;\n    top: -155px;\n    width: 100%;\n    font-size: 100px;\n    font-weight: 100;\n    text-align: center;\n    color: rgba(175, 47, 47, 0.15);\n    -webkit-text-rendering: optimizeLegibility;\n    -moz-text-rendering: optimizeLegibility;\n    text-rendering: optimizeLegibility;\n}\n\n.new-todo,\n.edit {\n    position: relative;\n    margin: 0;\n    width: 100%;\n    font-size: 24px;\n    font-family: inherit;\n    font-weight: inherit;\n    line-height: 1.4em;\n    border: 0;\n    outline: none;\n    color: inherit;\n    padding: 6px;\n    border: 1px solid #999;\n    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);\n    box-sizing: border-box;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n}\n\n.new-todo {\n    padding: 16px 16px 16px 60px;\n    border: none;\n    background: rgba(0, 0, 0, 0.003);\n    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);\n}\n\n.main {\n    position: relative;\n    z-index: 2;\n    border-top: 1px solid #e6e6e6;\n}\n\nlabel[for='toggle-all'] {\n    display: none;\n}\n\n.toggle-all {\n    position: absolute;\n    top: -55px;\n    left: -12px;\n    width: 60px;\n    height: 34px;\n    text-align: center;\n    border: none; /* Mobile Safari */\n}\n\n.toggle-all:before {\n    content: '\\276F';\n    font-size: 22px;\n    color: #e6e6e6;\n    padding: 10px 27px 10px 27px;\n}\n\n.toggle-all:checked:before {\n    color: #737373;\n}\n\n.todo-list {\n    margin: 0;\n    padding: 0;\n    list-style: none;\n}\n\n.todo-list li {\n    position: relative;\n    font-size: 24px;\n    border-bottom: 1px solid #ededed;\n}\n\n.todo-list li:last-child {\n    border-bottom: none;\n}\n\n.todo-list li.editing {\n    border-bottom: none;\n    padding: 0;\n}\n\n.todo-list li.editing .edit {\n    display: block;\n    width: 506px;\n    padding: 13px 17px 12px 17px;\n    margin: 0 0 0 43px;\n}\n\n.todo-list li.editing .view {\n    display: none;\n}\n\n.todo-list li .toggle {\n    text-align: center;\n    width: 40px;\n    /* auto, since non-WebKit browsers doesn't support input styling */\n    height: auto;\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    margin: auto 0;\n    border: none; /* Mobile Safari */\n    -webkit-appearance: none;\n    appearance: none;\n}\n\n.todo-list li .toggle:after {\n    content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"-10 -18 100 135\"><circle cx=\"50\" cy=\"50\" r=\"50\" fill=\"none\" stroke=\"#ededed\" stroke-width=\"3\"/></svg>');\n}\n\n.todo-list li .toggle:checked:after {\n    content: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"40\" viewBox=\"-10 -18 100 135\"><circle cx=\"50\" cy=\"50\" r=\"50\" fill=\"none\" stroke=\"#bddad5\" stroke-width=\"3\"/><path fill=\"#5dc2af\" d=\"M72 25L42 71 27 56l-4 4 20 20 34-52z\"/></svg>');\n}\n\n.todo-list li label {\n    white-space: pre-line;\n    word-break: break-all;\n    padding: 15px 60px 15px 15px;\n    margin-left: 45px;\n    display: block;\n    line-height: 1.2;\n    transition: color 0.4s;\n}\n\n.todo-list li.completed label {\n    color: #d9d9d9;\n    text-decoration: line-through;\n}\n\n.todo-list li .destroy {\n    display: none;\n    position: absolute;\n    top: 0;\n    right: 10px;\n    bottom: 0;\n    width: 40px;\n    height: 40px;\n    margin: auto 0;\n    font-size: 30px;\n    color: #cc9a9a;\n    margin-bottom: 11px;\n    transition: color 0.2s ease-out;\n}\n\n.todo-list li .destroy:hover {\n    color: #af5b5e;\n}\n\n.todo-list li .destroy:after {\n    content: '\\D7';\n}\n\n.todo-list li:hover .destroy {\n    display: block;\n}\n\n.todo-list li .edit {\n    display: none;\n}\n\n.todo-list li.editing:last-child {\n    margin-bottom: -1px;\n}\n\n.footer {\n    color: #777;\n    padding: 10px 15px;\n    height: 20px;\n    text-align: center;\n    border-top: 1px solid #e6e6e6;\n}\n\n.footer:before {\n    content: '';\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    height: 50px;\n    overflow: hidden;\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),\n    0 8px 0 -3px #f6f6f6,\n    0 9px 1px -3px rgba(0, 0, 0, 0.2),\n    0 16px 0 -6px #f6f6f6,\n    0 17px 2px -6px rgba(0, 0, 0, 0.2);\n}\n\n.todo-count {\n    float: left;\n    text-align: left;\n}\n\n.todo-count strong {\n    font-weight: 300;\n}\n\n.filters {\n    margin: 0;\n    padding: 0;\n    list-style: none;\n    position: absolute;\n    right: 0;\n    left: 0;\n}\n\n.filters li {\n    display: inline;\n}\n\n.filters li a {\n    color: inherit;\n    margin: 3px;\n    padding: 3px 7px;\n    text-decoration: none;\n    border: 1px solid transparent;\n    border-radius: 3px;\n}\n\n.filters li a.selected,\n.filters li a:hover {\n    border-color: rgba(175, 47, 47, 0.1);\n}\n\n.filters li a.selected {\n    border-color: rgba(175, 47, 47, 0.2);\n}\n\n.clear-completed,\nhtml .clear-completed:active {\n    float: right;\n    position: relative;\n    line-height: 20px;\n    text-decoration: none;\n    cursor: pointer;\n}\n\n.clear-completed:hover {\n    text-decoration: underline;\n}\n\n.info {\n    margin: 65px auto 0;\n    color: #bfbfbf;\n    font-size: 10px;\n    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);\n    text-align: center;\n}\n\n.info p {\n    line-height: 1;\n}\n\n.info a {\n    color: inherit;\n    text-decoration: none;\n    font-weight: 400;\n}\n\n.info a:hover {\n    text-decoration: underline;\n}\n\n/*\n    Hack to remove background from Mobile Safari.\n    Can't use it globally since it destroys checkboxes in Firefox\n*/\n@media screen and (-webkit-min-device-pixel-ratio: 0) {\n    .toggle-all,\n    .todo-list li .toggle {\n        background: none;\n    }\n\n    .todo-list li .toggle {\n        height: 40px;\n    }\n\n    .toggle-all {\n        -webkit-transform: rotate(90deg);\n        transform: rotate(90deg);\n        -webkit-appearance: none;\n        appearance: none;\n    }\n}\n\n@media (max-width: 430px) {\n    .footer {\n        height: 50px;\n    }\n\n    .filters {\n        bottom: 10px;\n    }\n}", ""]);
 
 // exports
 
@@ -11387,6 +11384,20 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       return emptyFunction.thatReturnsNull;
     }
 
+    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+      var checker = arrayOfTypeCheckers[i];
+      if (typeof checker !== 'function') {
+        warning(
+          false,
+          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
+          'received %s at index %s.',
+          getPostfixForTypeWarning(checker),
+          i
+        );
+        return emptyFunction.thatReturnsNull;
+      }
+    }
+
     function validate(props, propName, componentName, location, propFullName) {
       for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
         var checker = arrayOfTypeCheckers[i];
@@ -11519,6 +11530,9 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   // This handles more types than `getPropType`. Only used for error messages.
   // See `createPrimitiveTypeChecker`.
   function getPreciseType(propValue) {
+    if (typeof propValue === 'undefined' || propValue === null) {
+      return '' + propValue;
+    }
     var propType = getPropType(propValue);
     if (propType === 'object') {
       if (propValue instanceof Date) {
@@ -11528,6 +11542,23 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
       }
     }
     return propType;
+  }
+
+  // Returns a string that is postfixed to a warning about an invalid type.
+  // For example, "undefined" or "of type array"
+  function getPostfixForTypeWarning(value) {
+    var type = getPreciseType(value);
+    switch (type) {
+      case 'array':
+      case 'object':
+        return 'an ' + type;
+      case 'boolean':
+      case 'date':
+      case 'regexp':
+        return 'a ' + type;
+      default:
+        return type;
+    }
   }
 
   // Returns class name of the object, if any.
@@ -23134,8 +23165,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/_css-loader@0.28.1@css-loader/index.js!./index.css", function() {
-			var newContent = require("!!../node_modules/_css-loader@0.28.1@css-loader/index.js!./index.css");
+		module.hot.accept("!!../node_modules/_css-loader@0.28.2@css-loader/index.js!./index.css", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.2@css-loader/index.js!./index.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

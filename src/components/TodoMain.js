@@ -6,6 +6,8 @@ export default class TodoMain extends React.Component{
         let checkState = this.props.isCheckAll;
         if(!checkState){
             this.props.changeTaskStatus(null,null,true);
+        }else{
+            this.props.resetStatus();
         }
     }
 
