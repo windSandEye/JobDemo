@@ -3,23 +3,23 @@ import React from 'react';
 export default class TodoList extends React.Component {
 
     //多选框选中操作
-    handleChecked(index) {
+    handleChecked(taskId) {
         let currentList = this.props.taskList;
         if (currentList[index].status == 'completed') {
-            this.props.changeTaskStatus(index, '')
+            this.props.changeTaskStatus(taskId, '')
         } else {
-            this.props.changeTaskStatus(index, 'completed')
+            this.props.changeTaskStatus(taskId, 'completed')
         }
     }
 
     //编辑文本框值改变操作
-    handleChange(index, event) {
-        this.props.updateTask(index, event.target.value)
+    handleChange(taskId, event) {
+        this.props.updateTask(taskId, event.target.value)
     }
 
     //删除该任务
-    handleDestroy(index) {
-        this.props.deleteTask(index)
+    handleDestroy(taskId) {
+        this.props.deleteTask(taskId)
     }
     openEdit(index, event) {//变为编辑状态
         let currentList = this.props.taskList;
@@ -32,19 +32,19 @@ export default class TodoList extends React.Component {
     closeEdit(index, event) {//回撤取消编辑状态
         let currentList = this.props.taskList;
         if (event.keyCode == 13) {
-            if (currentList[index].taskName != "") {
+            if (currentList[index].taskName.trim() != "" ) {
                 this.refs[currentList[index].taskId].className = currentList[index].status;
             } else {
-                this.props.deleteTask(index);
+                this.props.deleteTask(currentList[index].taskId);
             }
         }
     }
     closeEditBlur(index) {//失去焦点取消编辑状态
         let currentList = this.props.taskList;
-        if (currentList[index].taskName != "") {
+        if (currentList[index].taskName.trim() != "") {
             this.refs[currentList[index].taskId].className = currentList[index].status;
         } else {
-            this.props.deleteTask(index);
+             this.props.deleteTask(currentList[index].taskId);
         }
 
     }
@@ -60,14 +60,14 @@ export default class TodoList extends React.Component {
                                     <input className="toggle"
                                         type="checkbox"
                                         checked={item.status == 'completed' ? true : false}
-                                        onChange={this.handleChecked.bind(this, index)}
+                                        onChange={this.handleChecked.bind(this, item.taskId)}
                                     />
                                     <label>{item.taskName}</label>
-                                    <button className="destroy" onClick={this.handleDestroy.bind(this, index)}></button>
+                                    <button className="destroy" onClick={this.handleDestroy.bind(this, item.taskId)}></button>
                                 </div>
                                 <input className="edit" value={item.taskName} ref={item.taskId + "-1"}
                                     placeholder="请输入任务名称"
-                                    onChange={this.handleChange.bind(this, index)}
+                                    onChange={this.handleChange.bind(this, item.taskId)}
                                     onKeyDown={this.closeEdit.bind(this, index)}
                                     onBlur={this.closeEditBlur.bind(this,index)}
                                 />

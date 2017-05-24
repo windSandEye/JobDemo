@@ -1212,7 +1212,7 @@ var CallbackQueue = __webpack_require__(58);
 var PooledClass = __webpack_require__(15);
 var ReactFeatureFlags = __webpack_require__(63);
 var ReactReconciler = __webpack_require__(19);
-var Transaction = __webpack_require__(29);
+var Transaction = __webpack_require__(30);
 
 var invariant = __webpack_require__(1);
 
@@ -2121,7 +2121,7 @@ var _assign = __webpack_require__(4);
 var ReactCurrentOwner = __webpack_require__(11);
 
 var warning = __webpack_require__(2);
-var canDefineProperty = __webpack_require__(32);
+var canDefineProperty = __webpack_require__(33);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 var REACT_ELEMENT_TYPE = __webpack_require__(78);
@@ -2508,7 +2508,7 @@ module.exports = reactProdInvariant;
 
 
 var DOMNamespaces = __webpack_require__(36);
-var setInnerHTML = __webpack_require__(31);
+var setInnerHTML = __webpack_require__(32);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(43);
 var setTextContent = __webpack_require__(76);
@@ -2823,7 +2823,7 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var canDefineProperty = __webpack_require__(32);
+  var canDefineProperty = __webpack_require__(33);
   var ReactElementValidator = __webpack_require__(79);
   var didWarnPropTypesDeprecated = false;
   createElement = ReactElementValidator.createElement;
@@ -2942,7 +2942,7 @@ module.exports = emptyObject;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventPluginRegistry = __webpack_require__(26);
+var EventPluginRegistry = __webpack_require__(27);
 var EventPluginUtils = __webpack_require__(37);
 var ReactErrorUtils = __webpack_require__(41);
 
@@ -3469,6 +3469,16 @@ module.exports = SyntheticUIEvent;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(120);
+
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -3726,7 +3736,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3744,7 +3754,7 @@ module.exports = EventPluginRegistry;
 
 var _assign = __webpack_require__(4);
 
-var EventPluginRegistry = __webpack_require__(26);
+var EventPluginRegistry = __webpack_require__(27);
 var ReactEventEmitterMixin = __webpack_require__(139);
 var ViewportMetrics = __webpack_require__(69);
 
@@ -4059,7 +4069,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4136,7 +4146,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4367,7 +4377,7 @@ module.exports = TransactionImpl;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4495,7 +4505,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4598,7 +4608,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4628,16 +4638,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(120);
-
 
 /***/ }),
 /* 34 */
@@ -4735,7 +4735,7 @@ var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(8);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(43);
-var setInnerHTML = __webpack_require__(31);
+var setInnerHTML = __webpack_require__(32);
 var setTextContent = __webpack_require__(76);
 
 function getNodeAfter(parentNode, node) {
@@ -6480,7 +6480,7 @@ var _prodInvariant = __webpack_require__(17);
 
 var ReactNoopUpdateQueue = __webpack_require__(51);
 
-var canDefineProperty = __webpack_require__(32);
+var canDefineProperty = __webpack_require__(33);
 var emptyObject = __webpack_require__(21);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -7937,7 +7937,7 @@ var _prodInvariant = __webpack_require__(3);
 var DOMLazyTree = __webpack_require__(18);
 var DOMProperty = __webpack_require__(13);
 var React = __webpack_require__(20);
-var ReactBrowserEventEmitter = __webpack_require__(27);
+var ReactBrowserEventEmitter = __webpack_require__(28);
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(122);
@@ -7953,7 +7953,7 @@ var ReactUpdates = __webpack_require__(10);
 var emptyObject = __webpack_require__(21);
 var instantiateReactComponent = __webpack_require__(74);
 var invariant = __webpack_require__(1);
-var setInnerHTML = __webpack_require__(31);
+var setInnerHTML = __webpack_require__(32);
 var shouldUpdateReactComponent = __webpack_require__(48);
 var warning = __webpack_require__(2);
 
@@ -8941,8 +8941,8 @@ module.exports = isTextInputElement;
 
 
 var ExecutionEnvironment = __webpack_require__(6);
-var escapeTextContentForBrowser = __webpack_require__(30);
-var setInnerHTML = __webpack_require__(31);
+var escapeTextContentForBrowser = __webpack_require__(31);
+var setInnerHTML = __webpack_require__(32);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -9217,7 +9217,7 @@ var ReactElement = __webpack_require__(16);
 
 var checkReactTypeSpec = __webpack_require__(186);
 
-var canDefineProperty = __webpack_require__(32);
+var canDefineProperty = __webpack_require__(33);
 var getIteratorFn = __webpack_require__(81);
 var warning = __webpack_require__(2);
 
@@ -9571,19 +9571,44 @@ var TodoApp = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
 
         _this.state = {
+            isClear: true,
             isCheckAll: false,
             taskList: [{
+                taskId: "123",
                 status: 'completed',
                 taskName: '删除的任务'
             }, {
+                taskId: "1234",
                 status: '',
                 taskName: '任务一'
-            }]
+            }],
+            tabIndex: 0
         };
         return _this;
     }
 
     _createClass(TodoApp, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            //初始化是否全选，是否显示清楚任务按钮
+            if (this.state.taskList.every(function (task) {
+                return task.status == 'completed';
+            })) {
+                this.state.isCheckAll = true;
+            } else {
+                this.state.isCheckAll = false;
+            }
+            if (this.state.taskList.every(function (task) {
+                return task.status == '';
+            })) {
+                this.state.isClear = false;
+            } else {
+                this.state.isClear = true;
+            }
+
+            this.setState({ isCheckAll: this.state.isCheckAll, isClear: this.state.isClear });
+        }
+    }, {
         key: 'isAllChecked',
         value: function isAllChecked() {
             //任务是否全部完成
@@ -9594,7 +9619,14 @@ var TodoApp = function (_React$Component) {
             } else {
                 this.state.isCheckAll = false;
             }
-            this.setState({ taskList: this.state.taskList, isCheckAll: this.state.isCheckAll });
+            if (this.state.taskList.every(function (task) {
+                return task.status == '';
+            })) {
+                this.state.isClear = false;
+            } else {
+                this.state.isClear = true;
+            }
+            this.setState({ taskList: this.state.taskList, isCheckAll: this.state.isCheckAll, isClear: this.state.isClear });
         }
     }, {
         key: 'changeTaskStatus',
@@ -9608,7 +9640,8 @@ var TodoApp = function (_React$Component) {
                         task.status = 'completed';
                         return task;
                     }),
-                    isCheckAll: true
+                    isCheckAll: true,
+                    isClear: true
                 });
             } else {
                 //非全选状态
@@ -9631,6 +9664,13 @@ var TodoApp = function (_React$Component) {
             this.setState({ taskList: this.state.taskList });
         }
     }, {
+        key: 'addTask',
+        value: function addTask(task) {
+            //新增任务
+            this.state.taskList.push(task);
+            this.setState({ taskList: this.state.taskList });
+        }
+    }, {
         key: 'clearCompleteTask',
         value: function clearCompleteTask() {
             //清除已完成的任务
@@ -9641,26 +9681,76 @@ var TodoApp = function (_React$Component) {
         }
     }, {
         key: 'switchTab',
-        value: function switchTab(currentTask) {
+        value: function switchTab(index) {
             //切换tab
-            this.setState({ taskList: currentTask });
+            this.setState({ tabIndex: index });
+        }
+    }, {
+        key: 'resetStatus',
+        value: function resetStatus() {
+            //重置所有任务未未完成
+            var taskList = this.state.taskList;
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = taskList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var task = _step.value;
+
+                    task.status = "";
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            this.setState({ taskList: taskList, isCheckAll: false, isClear: false });
         }
     }, {
         key: 'render',
         value: function render() {
+
+            var currentTask = [];
+            if (this.state.tabIndex == 0) {
+                currentTask = this.state.taskList;
+            } else if (this.state.tabIndex == 1) {
+                currentTask = this.state.taskList.filter(function (task) {
+                    return task.status == 'completed';
+                });
+            } else {
+                currentTask = this.state.taskList.filter(function (task) {
+                    return task.status == '';
+                });
+            }
+
+            var taskCount = currentTask.length || 0;
             return _react2.default.createElement(
                 'section',
                 { ref: 'todoapp', id: 'todoapp', className: 'todoapp' },
-                _react2.default.createElement(_TodoHeader2.default, null),
+                _react2.default.createElement(_TodoHeader2.default, { addTask: this.addTask.bind(this) }),
                 _react2.default.createElement(_TodoMain2.default, { isCheckAll: this.state.isCheckAll,
-                    taskList: this.state.taskList,
+                    taskList: currentTask,
                     changeTaskStatus: this.changeTaskStatus.bind(this),
                     deleteTask: this.deleteTask.bind(this),
-                    updateTask: this.deleteTask.bind(this)
+                    updateTask: this.updateTask.bind(this),
+                    resetStatus: this.resetStatus.bind(this)
                 }),
-                _react2.default.createElement(_TodoFooter2.default, { taskList: this.state.taskList,
-                    clearCompleteTask: this.clearCompleteTask.bind(this),
-                    switchTab: this.switchTab.bind(this)
+                _react2.default.createElement(_TodoFooter2.default, { clearCompleteTask: this.clearCompleteTask.bind(this),
+                    switchTab: this.switchTab.bind(this),
+                    taskCount: taskCount,
+                    isCheckAll: this.state.isCheckAll,
+                    isClear: this.state.isClear
                 })
             );
         }
@@ -9688,7 +9778,7 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9712,24 +9802,20 @@ var FooterFilter = function (_React$Component) {
     _createClass(FooterFilter, [{
         key: 'switchTab',
         value: function switchTab(index) {
-            var currentTask = this.props.allTask;
             if (index == 0) {
                 _reactDom2.default.findDOMNode(this.refs.all).className = 'selected';
                 _reactDom2.default.findDOMNode(this.refs.active).className = '';
                 _reactDom2.default.findDOMNode(this.refs.completed).className = '';
-                currentTask = this.props.allTask;
             } else if (index == 1) {
                 _reactDom2.default.findDOMNode(this.refs.all).className = '';
                 _reactDom2.default.findDOMNode(this.refs.active).className = 'selected';
                 _reactDom2.default.findDOMNode(this.refs.completed).className = '';
-                currentTask = this.props.doneTask;
             } else if (index == 2) {
                 _reactDom2.default.findDOMNode(this.refs.all).className = '';
                 _reactDom2.default.findDOMNode(this.refs.active).className = '';
                 _reactDom2.default.findDOMNode(this.refs.completed).className = 'selected';
-                currentTask = this.props.noDoneTask;
             }
-            this.props.switchTab(currentTask);
+            this.props.switchTab(index);
         }
     }, {
         key: 'render',
@@ -9799,6 +9885,10 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(26);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _FooterFilter = __webpack_require__(83);
 
 var _FooterFilter2 = _interopRequireDefault(_FooterFilter);
@@ -9814,28 +9904,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TodoFooter = function (_React$Component) {
     _inherits(TodoFooter, _React$Component);
 
-    function TodoFooter(props) {
+    function TodoFooter() {
         _classCallCheck(this, TodoFooter);
 
-        var _this = _possibleConstructorReturn(this, (TodoFooter.__proto__ || Object.getPrototypeOf(TodoFooter)).call(this, props));
-
-        _this.state = { //注意：这里初始化的数据是没有被同步的，也就是说，界面的修改并没有影响这里的数据，实际应用中应该从后台获取实时数据。
-            allTask: props.taskList,
-            doneTask: props.taskList.filter(function (task) {
-                return task.status == 'completed';
-            }),
-            noDoneTask: props.taskList.filter(function (task) {
-                return task.status == '';
-            }),
-            currentTask: props.taskList
-        };
-        return _this;
+        return _possibleConstructorReturn(this, (TodoFooter.__proto__ || Object.getPrototypeOf(TodoFooter)).apply(this, arguments));
     }
 
     _createClass(TodoFooter, [{
         key: 'render',
         value: function render() {
-            var taskCount = this.state.currentTask.length || 0;
             return _react2.default.createElement(
                 'footer',
                 { id: 'footer', className: 'footer' },
@@ -9846,7 +9923,7 @@ var TodoFooter = function (_React$Component) {
                     _react2.default.createElement(
                         'strong',
                         { id: 'totale' },
-                        taskCount
+                        this.props.taskCount
                     ),
                     _react2.default.createElement(
                         'span',
@@ -9854,14 +9931,10 @@ var TodoFooter = function (_React$Component) {
                         ' \u9879\u4EFB\u52A1'
                     )
                 ),
-                _react2.default.createElement(_FooterFilter2.default, { switchTab: this.props.switchTab.bind(this),
-                    allTask: this.state.allTask,
-                    doneTask: this.state.doneTask,
-                    noDoneTask: this.state.noDoneTask
-                }),
+                _react2.default.createElement(_FooterFilter2.default, { switchTab: this.props.switchTab.bind(this) }),
                 _react2.default.createElement(
                     'button',
-                    { id: 'clear-completed', className: 'clear-completed',
+                    { ref: 'clearCompleted', className: this.props.isClear ? "clear-completed" : "hidden",
                         onClick: this.props.clearCompleteTask.bind(this) },
                     '\u6E05\u9664\u5DF2\u5B8C\u6210\u9879\u76EE'
                 )
@@ -9891,7 +9964,7 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -9913,16 +9986,40 @@ var TodoHeader = function (_React$Component) {
 
         _this.state = {
             headerTitle: 'todos',
-            cipId: 'cIPJQ342845639',
+            cipId: '',
             cipVal: ''
         };
         return _this;
     }
 
     _createClass(TodoHeader, [{
+        key: 'guid',
+        value: function guid() {
+            //生成uuid
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                var r = Math.random() * 16 | 0,
+                    v = c == 'x' ? r : r & 0x3 | 0x8;
+                return v.toString(16);
+            });
+        }
+    }, {
         key: 'handleChange',
         value: function handleChange(event) {
             this.setState({ cipVal: event.target.value });
+        }
+    }, {
+        key: 'handleEnter',
+        value: function handleEnter(event) {
+            //回撤新增任务
+            if (event.keyCode == 13 && this.state.cipVal != "") {
+                var task = {
+                    taskId: this.guid(),
+                    status: '',
+                    taskName: this.state.cipVal
+                };
+                this.props.addTask(task);
+                this.setState({ cipVal: '', cipId: task.taskId });
+            }
         }
     }, {
         key: 'render',
@@ -9939,7 +10036,8 @@ var TodoHeader = function (_React$Component) {
                     placeholder: 'What needs to be done?',
                     'data-cip-id': this.state.cipId,
                     value: this.state.cipVal,
-                    onChange: this.handleChange.bind(this)
+                    onChange: this.handleChange.bind(this),
+                    onKeyDown: this.handleEnter.bind(this)
                 })
             );
         }
@@ -10014,6 +10112,63 @@ var TodoList = function (_React$Component) {
             this.props.deleteTask(index);
         }
     }, {
+        key: 'openEdit',
+        value: function openEdit(index, event) {
+            //变为编辑状态
+            var currentList = this.props.taskList;
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = currentList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var task = _step.value;
+                    //先将所有编辑框取消，因为双击不触发失去焦点事件
+                    this.refs[task.taskId].className = task.status;
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+
+            var currentClassName = this.refs[currentList[index].taskId].className;
+            this.refs[currentList[index].taskId].className += " editing";
+        }
+    }, {
+        key: 'closeEdit',
+        value: function closeEdit(index, event) {
+            //回撤取消编辑状态
+            var currentList = this.props.taskList;
+            if (event.keyCode == 13) {
+                if (currentList[index].taskName != "") {
+                    this.refs[currentList[index].taskId].className = currentList[index].status;
+                } else {
+                    this.props.deleteTask(index);
+                }
+            }
+        }
+    }, {
+        key: 'closeEditBlur',
+        value: function closeEditBlur(index) {
+            //失去焦点取消编辑状态
+            var currentList = this.props.taskList;
+            if (currentList[index].taskName != "") {
+                this.refs[currentList[index].taskId].className = currentList[index].status;
+            } else {
+                this.props.deleteTask(index);
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -10024,7 +10179,7 @@ var TodoList = function (_React$Component) {
                 this.props.taskList.map(function (item, index) {
                     return _react2.default.createElement(
                         'li',
-                        { key: index, className: item.status },
+                        { key: index, className: item.status, onDoubleClick: _this2.openEdit.bind(_this2, index), ref: item.taskId },
                         _react2.default.createElement(
                             'div',
                             { className: 'view' },
@@ -10040,7 +10195,12 @@ var TodoList = function (_React$Component) {
                             ),
                             _react2.default.createElement('button', { className: 'destroy', onClick: _this2.handleDestroy.bind(_this2, index) })
                         ),
-                        _react2.default.createElement('input', { className: 'edit', value: item.taskName, onChange: _this2.handleChange.bind(_this2, index) })
+                        _react2.default.createElement('input', { className: 'edit', value: item.taskName, ref: item.taskId + "-1",
+                            placeholder: '\u8BF7\u8F93\u5165\u4EFB\u52A1\u540D\u79F0',
+                            onChange: _this2.handleChange.bind(_this2, index),
+                            onKeyDown: _this2.closeEdit.bind(_this2, index),
+                            onBlur: _this2.closeEditBlur.bind(_this2, index)
+                        })
                     );
                 })
             );
@@ -10096,6 +10256,8 @@ var TodoMain = function (_React$Component) {
             var checkState = this.props.isCheckAll;
             if (!checkState) {
                 this.props.changeTaskStatus(null, null, true);
+            } else {
+                this.props.resetStatus();
             }
         }
     }, {
@@ -10115,12 +10277,15 @@ var TodoMain = function (_React$Component) {
                     { htmlFor: 'toggle-all' },
                     'Mark all as complete'
                 ),
-                _react2.default.createElement(_TodoList2.default, { ref: 'todoList',
-                    taskList: this.props.taskList,
-                    changeTaskStatus: this.props.changeTaskStatus.bind(this),
-                    updateTask: this.props.updateTask.bind(this),
-                    deleteTask: this.props.deleteTask.bind(this)
-                })
+                'taskList=',
+                this.props.taskList,
+                'changeTaskStatus=',
+                this.props.changeTaskStatus.bind(this),
+                'updateTask=',
+                this.props.updateTask.bind(this),
+                'deleteTask=',
+                this.props.deleteTask.bind(this),
+                '/>'
             );
         }
     }]);
@@ -10141,7 +10306,7 @@ var _react = __webpack_require__(14);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(33);
+var _reactDom = __webpack_require__(26);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -12745,7 +12910,7 @@ module.exports = DefaultEventPluginOrder;
 
 var EventPropagators = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
-var SyntheticMouseEvent = __webpack_require__(28);
+var SyntheticMouseEvent = __webpack_require__(29);
 
 var eventTypes = {
   mouseEnter: {
@@ -14421,8 +14586,8 @@ var DOMNamespaces = __webpack_require__(36);
 var DOMProperty = __webpack_require__(13);
 var DOMPropertyOperations = __webpack_require__(59);
 var EventPluginHub = __webpack_require__(22);
-var EventPluginRegistry = __webpack_require__(26);
-var ReactBrowserEventEmitter = __webpack_require__(27);
+var EventPluginRegistry = __webpack_require__(27);
+var ReactBrowserEventEmitter = __webpack_require__(28);
 var ReactDOMComponentFlags = __webpack_require__(60);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMInput = __webpack_require__(126);
@@ -14434,7 +14599,7 @@ var ReactMultiChild = __webpack_require__(145);
 var ReactServerRenderingTransaction = __webpack_require__(150);
 
 var emptyFunction = __webpack_require__(9);
-var escapeTextContentForBrowser = __webpack_require__(30);
+var escapeTextContentForBrowser = __webpack_require__(31);
 var invariant = __webpack_require__(1);
 var isEventSupported = __webpack_require__(47);
 var shallowEqual = __webpack_require__(34);
@@ -16375,7 +16540,7 @@ var DOMChildrenOperations = __webpack_require__(35);
 var DOMLazyTree = __webpack_require__(18);
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var escapeTextContentForBrowser = __webpack_require__(30);
+var escapeTextContentForBrowser = __webpack_require__(31);
 var invariant = __webpack_require__(1);
 var validateDOMNesting = __webpack_require__(49);
 
@@ -16847,7 +17012,7 @@ module.exports = {
 
 
 var DOMProperty = __webpack_require__(13);
-var EventPluginRegistry = __webpack_require__(26);
+var EventPluginRegistry = __webpack_require__(27);
 var ReactComponentTreeHook = __webpack_require__(7);
 
 var warning = __webpack_require__(2);
@@ -17332,7 +17497,7 @@ module.exports = ReactDebugTool;
 var _assign = __webpack_require__(4);
 
 var ReactUpdates = __webpack_require__(10);
-var Transaction = __webpack_require__(29);
+var Transaction = __webpack_require__(30);
 
 var emptyFunction = __webpack_require__(9);
 
@@ -17760,7 +17925,7 @@ var EventPluginHub = __webpack_require__(22);
 var EventPluginUtils = __webpack_require__(37);
 var ReactComponentEnvironment = __webpack_require__(40);
 var ReactEmptyComponent = __webpack_require__(62);
-var ReactBrowserEventEmitter = __webpack_require__(27);
+var ReactBrowserEventEmitter = __webpack_require__(28);
 var ReactHostComponent = __webpack_require__(64);
 var ReactUpdates = __webpack_require__(10);
 
@@ -18483,10 +18648,10 @@ var _assign = __webpack_require__(4);
 
 var CallbackQueue = __webpack_require__(58);
 var PooledClass = __webpack_require__(15);
-var ReactBrowserEventEmitter = __webpack_require__(27);
+var ReactBrowserEventEmitter = __webpack_require__(28);
 var ReactInputSelection = __webpack_require__(65);
 var ReactInstrumentation = __webpack_require__(8);
-var Transaction = __webpack_require__(29);
+var Transaction = __webpack_require__(30);
 var ReactUpdateQueue = __webpack_require__(42);
 
 /**
@@ -18760,7 +18925,7 @@ module.exports = ReactRef;
 var _assign = __webpack_require__(4);
 
 var PooledClass = __webpack_require__(15);
-var Transaction = __webpack_require__(29);
+var Transaction = __webpack_require__(30);
 var ReactInstrumentation = __webpack_require__(8);
 var ReactServerUpdateQueue = __webpack_require__(151);
 
@@ -19531,7 +19696,7 @@ var SyntheticClipboardEvent = __webpack_require__(157);
 var SyntheticEvent = __webpack_require__(12);
 var SyntheticFocusEvent = __webpack_require__(160);
 var SyntheticKeyboardEvent = __webpack_require__(162);
-var SyntheticMouseEvent = __webpack_require__(28);
+var SyntheticMouseEvent = __webpack_require__(29);
 var SyntheticDragEvent = __webpack_require__(159);
 var SyntheticTouchEvent = __webpack_require__(163);
 var SyntheticTransitionEvent = __webpack_require__(164);
@@ -19882,7 +20047,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(28);
+var SyntheticMouseEvent = __webpack_require__(29);
 
 /**
  * @interface DragEvent
@@ -20189,7 +20354,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(28);
+var SyntheticMouseEvent = __webpack_require__(29);
 
 /**
  * @interface WheelEvent
@@ -20961,7 +21126,7 @@ module.exports = getVendorPrefixedEventName;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(30);
+var escapeTextContentForBrowser = __webpack_require__(31);
 
 /**
  * Escapes attribute value to prevent scripting attacks.

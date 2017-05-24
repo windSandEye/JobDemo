@@ -21,8 +21,7 @@ export default class TodoMain extends React.Component{
                        onChange={this.handleToggleAll.bind(this)}
                 />
                 <label htmlFor="toggle-all">Mark all as complete</label>
-                <TodoList ref="todoList"
-                          taskList={this.props.taskList}
+                <TodoList taskList={this.props.taskList}
                           changeTaskStatus={this.props.changeTaskStatus.bind(this)}
                           updateTask={this.props.updateTask.bind(this)}
                           deleteTask={this.props.deleteTask.bind(this)}
